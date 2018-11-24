@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 public class QuizActivity extends AppCompatActivity {
@@ -31,7 +33,11 @@ public class QuizActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Toast toast = Toast.makeText(QuizActivity.this, R.string.incorrect_toast,Toast.LENGTH_SHORT);
-                toast.setGravity(Gravity.RIGHT,10,0);
+                toast.setGravity(Gravity.CENTER,0,0);
+                LinearLayout toastImage = (LinearLayout) toast.getView();
+                ImageView imageView = new ImageView(QuizActivity.this);
+                imageView.setImageResource(R.drawable.logo);
+                toastImage.addView(imageView,0);
                 toast.show();
 
 //                Toast.makeText(QuizActivity.this,
